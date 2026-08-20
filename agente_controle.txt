@@ -1,0 +1,23 @@
+7. Análise do comportamento: Após executar o programa, responda:
+
+a) Em qual momento o estado interno passou a influenciar diretamente a ação escolhida pelo agente?
+    O estado interno começou a influenciar diretamente quando apareceu a percepção acesso_admin, já que nessa hora o agente não decide só olhando a percepção, ele consulta o estado atual para saber se o usuário está logado, bloquado ou quantas tentativas_admin já ocorreram.
+
+b) Por que a percepção acesso_admin pode produzir ações diferentes em momentos diferentes da execução?
+    Porque ela é interpretada de diferentes formas dependendo do seu contexto, assim quando o 'usuário' está logado e desbloqueado, ele tem acesso ao admin, mas quando ele está deslogado é negado e iniciado o contador de tentativas, sendo bloqueado a partir de 3 chances de acesso sem login.
+
+c) Qual é a diferença entre uma percepção e uma informação armazenada no estado interno?
+    uma percepçao é um evento que chega do ambiente naquele momento,  como se fosse um gatilho que dispara uma mensagem nova dizendo que algo aconteceu.
+    Já uma informação armazenada no estado interno é algo que o agente guarda na memória e que será usado nas próxima decisões, como ocorre no 'tentativas_admin'.
+
+d) O que aconteceria se o agente não mantivesse tentativas_admin?
+    se o agente não guardasse 'tentativas_admin', ele não ia conseguir contar quantas vezes alguém tentou acessar a área administrativa sem estar logado, logo ele não saberia quantos acessos sem login foram feitos para gerar o bloqueio automático, parecendo que todas as tentativas são a primeiro e apenas negando o acesso, mas não realizando o bloqueio total de fato.
+
+8) nova regra:
+    A nova regra criada foi uma verificação administrativa reforçada. Quando o agente identifica duas tentativas de acesso administrativo sem autenticação, ele marca a sessão como suspeita usando a informação sessao_suspeita = True.
+    Depois disso, mesmo que o usuário faça login com sucesso, o agente não permite acesso direto à área administrativa. Antes, ele exige que o usuário confirme as credenciais de administrador e valide um código de segurança.
+    Assim, a percepção acesso_admin pode gerar ações diferentes dependendo do estado interno:
+        - se o usuário não está logado: negar_acesso_admin;
+        - se o usuário está logado e a sessão não é suspeita: permitir_acesso_admin;
+        - se o usuário está logado, mas a sessão é suspeita: exigir_verificacao_admin;
+        - se as credenciais e o código foram validados: permitir_acesso_admin.

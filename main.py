@@ -1,5 +1,5 @@
-from estudos_agentes_inteligentes import agente_controle_acesso
-from estudos_agentes_inteligentes import agente_loja
+import agente_controle_acesso
+import agente_loja
 
 
 def agente_ini():
