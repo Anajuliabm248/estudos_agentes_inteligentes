@@ -1,0 +1,95 @@
+3.1 PEAS
+Defina o modelo PEAS do agente:
+Performance: como avaliar se as recomendações são boas?
+    eu utilizaria três principais métricas:
+    - taxa de cliques (CTR), que mostra o percentual de recomendações clicadas
+        - cliques em recomendações / total de recomendações
+    - tempo médio de permanência, quanto tempo o user ficou na notícia
+        - soma do tempo dos conteúdos recomendados acessados / quantidade de conteudos
+    - taxa de recomendações ignoradas, sem relevância para o user
+        - recomendações ignoradas / total de recomendações
+    mas claro, nenhum desses avaliadores de performance são definitivos, uma pessoa pode muito bem
+    abrir uma notícia irrelevante sem querer e então deixar aquela notícia aberta e ir fazer outras
+    coisas, então essas métricas são pistas que devem ser aprimoradas, mas vamos seguir com elas por enquanto.
+
+Environment: onde o agente atua?
+    o agente está atuando em uma plataforma web de notícioas, que contém o próprio catálogo
+    de notícias, mas principalmente usuários e as interações deles realizadas dentro do sistema.
+
+Sensors: quais informações o agente recebe?
+    o agente recebe informações como (leitura):
+    - visualização
+    - clique
+    - recomendação ignorada
+    - usuário
+    - conteúdo
+    - momento
+    - tempo de permanência
+
+Actuators: quais ações o agente pode realizar?
+    ele pode realizar ações para recomendar as melhores notícias para o usuário
+    baseada nas métricas descritas a cima
+
+
+3.2 Medidas de desempenho
+Defina pelo menos três medidas de desempenho que possam ser utilizadas para avaliar o agente.
+Para cada medida, explique brevemente:
+- O que ela mede;
+- Por que ela é relevante para avaliar o agente;
+- Se um valor maior ou menor representa melhor desempenho.
+    1. taxa de cliques nas recomendações:
+    essa medida indica a porcentagem de recomendações que receberam cliques do user,
+    assim ela é calculada pela diferença entre 'clique_recomendacao' pelo total de 'recomendacao',
+    e multiplicando por 100 para ter a porcentagem. Ele é importante já que mostra se os conteúdos
+    realmente estão do agrado do usuário ou não. Por consequencia, quanto maior a taxa, melhor tende
+    a ser o desempenho do agente.
+
+    2. tempo médio de permanência nos conteúdos recomendados:
+    Essa média indica quanto tempo os usuários permaneceram nos conteúdos acessados por meio das recomendações,
+    assim ela é relevante já que um clique sozinho não quer dizer muito, assim se o usuário clicar e sair rapidamente
+    de uma notícia, provavelmente ela não foi do seu agrado, logo um conteúdo que é acessado e cativa a atenção do
+    usuário, é uma métrica bem melhor para difinir o sucesso da recomendação. Ela é calculada pela diferença entre
+    o tempo total de permanêcia no material indicado clicado pelo total desses conteúdos. Por convenção, quanto maior
+    a média do tempo, supostamente maior o interesse do usuário, claro que tempos distoantes devem ser
+    levados em consideração como dados a parte.
+
+    3. taxa de recomendações ignoradas:
+    Essa medida representa a porcentagem de recomendações que não receberam interação do usuário, indicando que são
+    irrelevantes para o mesmo e que não devem aparecer com frequencia novamente (sendo essa sua relevância).
+    Ela é calculada dividindo o número de eventos 'ignorou_recomendacao' pelo total de recomendações e
+    obtendo a porcentagem pela multiplicação por 100. Nesse caso, quanto menor o valor, melhor o desempenho do agente,
+    já que indica um menor número conteúdos irrelevantes.
+
+
+3.3 Classificação do ambiente
+    Parcialmente observável, estocático, sequencial, dinâmico e prodominantemente discreto.
+    - Parcialmente observável -> o agente enxerga os cliques, visualizações e tempo de permanência,
+    mas não sabe o que o usuário está pensando.
+        - ficar muito tempo em uma página pode indicar interesse,
+        mas também pode significar que a página foi aleatoriamente deixada aberta.
+    - Estocático -> o resultado da recomendação é incerto.
+        - recomendar uma notícia de tecnologia não garante que o usuário irá clicar nela ou se interessar.
+    - Sequencial -> o histórico importa.
+        - uma interação altera o perfil usado nas próximas decisões, por isso os eventos são processados na ordem do 'momento'
+    - Dinâmico -> os interesses podem mudar ao longo do tempo.
+        - o usuário 5 começou consumindo 'educação' e terminou em 'tecnologia'.
+        - O agente precisa sempre estar atualizando seu perfil de recomendação.
+    - Predominantemente discreto -> usuários, notícias, categorias, eventos e recomendações são elementos separados e contáveis.
+        - embora o tempo de permanência seja numérico, a simulação avança por eventos: visualizou, clicou, ignorou, etc.
+
+
+3.4 Arquitetura
+    Optei por uma arquitetura baseada em utilidade com estado interno, já que:
+        - ela lembra de interações anteriores;
+        - acompanha mudanças nos interesses;
+        - compara várias notícias disponíveis;
+        - atribui uma pontuação a cada alternativa;
+        - recomenda a notícia de maior pontuação.
+    Ou seja, compara alternativas e escolhe a considerada melhor.
+
+    O estado interno representa o perfil atual do usuário,
+    incluindo suas categorias de interesse, conteúdos visualizados, cliques e recomendações ignoradas.
+
+    Nesse caso a pontuação é calculada para cada notícia para fazer a melhor recomendação possível.
+    Ela pode considerar categoria preferida, tempo de permanência, semelhança com títulos já lidos, etc. Depois o agente elimina as notícias
+    já vistas e escolhe a alternativa com maior pontuação ou no caso de empate uma aleatoria (entre as empatadas).

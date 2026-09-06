@@ -1,0 +1,3 @@
+from noticias_recomendacao import agente_recomendacao_conteudo
+
+agente_recomendacao_conteudo.iniciar_agente()
