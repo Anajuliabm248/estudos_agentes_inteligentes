@@ -39,7 +39,7 @@ Para cada medida, explique brevemente:
 - Se um valor maior ou menor representa melhor desempenho.
     1. taxa de cliques nas recomendações:
     essa medida indica a porcentagem de recomendações que receberam cliques do user,
-    assim ela é calculada pela diferença entre 'clique_recomendacao' pelo total de 'recomendacao',
+    assim ela é calculada pela divisão entre 'clique_recomendacao' pelo total de 'recomendacao',
     e multiplicando por 100 para ter a porcentagem. Ele é importante já que mostra se os conteúdos
     realmente estão do agrado do usuário ou não. Por consequencia, quanto maior a taxa, melhor tende
     a ser o desempenho do agente.
@@ -48,7 +48,7 @@ Para cada medida, explique brevemente:
     Essa média indica quanto tempo os usuários permaneceram nos conteúdos acessados por meio das recomendações,
     assim ela é relevante já que um clique sozinho não quer dizer muito, assim se o usuário clicar e sair rapidamente
     de uma notícia, provavelmente ela não foi do seu agrado, logo um conteúdo que é acessado e cativa a atenção do
-    usuário, é uma métrica bem melhor para difinir o sucesso da recomendação. Ela é calculada pela diferença entre
+    usuário, é uma métrica bem melhor para difinir o sucesso da recomendação. Ela é calculada pela divisão entre
     o tempo total de permanêcia no material indicado clicado pelo total desses conteúdos. Por convenção, quanto maior
     a média do tempo, supostamente maior o interesse do usuário, claro que tempos distoantes devem ser
     levados em consideração como dados a parte.
@@ -93,3 +93,4 @@ Para cada medida, explique brevemente:
     Nesse caso a pontuação é calculada para cada notícia para fazer a melhor recomendação possível.
     Ela pode considerar categoria preferida, tempo de permanência, semelhança com títulos já lidos, etc. Depois o agente elimina as notícias
     já vistas e escolhe a alternativa com maior pontuação ou no caso de empate uma aleatoria (entre as empatadas).
+
