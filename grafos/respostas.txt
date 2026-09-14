@@ -1,0 +1,66 @@
+# PARTE 1
+    1. Estado inicial: o agente inicia na página home, entretanto o sistema deverá permitir que a navegação se inicie por
+        outras páginas através do estado 'inicio'
+
+    2. Estados:
+    def __init__(self):
+        self.estado = {
+            'pagina': home,
+            'objetivo': 'notebook_gamer'
+            'caminho': []
+        }
+
+    3. Ações: o agente deverá ser capaz de encontrar a página 'notebook_gamer' seguindo os links de 'site'
+
+    4. modelo de transição: quando o agente executa uma ação ele troca de página
+
+    5. teste de objetivo: o agente alcançou o objetivo quando a página atual é igual a página procurada
+
+    6. função de custo: podemos calcular o custo através da busca em grafos, como por percursos de amplitude (largura) ou profundidade (altura), como visto em estrutura de dados.
+        Nele a cada página visitada deverá ser adicionado 1 ponto de custo, fazendo assim a somatória do custo total.
+
+# PARTE 2
+    1. home -> produtos -> notebooks -> notebook_gamer
+       home -> ofertas -> notebooks -> notebook_gamer
+
+    2. ambas tem o mesmo custo: 3
+
+    3. não necessariamente precisa ser um agente baseado em utilidade, já que um agente baseado em objetivos já é capaz de alcançar um objetivo desejado,
+       contudo, a arquitetura baseada em utilizade é capaz de avaliar qual alternativa é mais aplicável de acordo com a utilidade, no caso o menor custo,
+       logo, ambas chegam no resultado esperado, mas agentes baseados em utilidade encontram a melhor forma de se chegar até a solução.
+
+# PARTE 4
+    1. caminho sencontrados:
+      - notebook_gamer:
+        home -> produtos -> notebooks -> notebook_gamer
+      - iOS:
+        home -> produtos -> celulares -> iOS
+      - faq:
+        home -> suporte -> fq
+      - mouse: nenhuma solução (não tá no site)
+
+    2. custos:
+      - notebook_gamer: 3
+      - iOS: 3
+      - faq: 2
+
+    3. o agente encontrou o menor custo:
+        Sim, tanto por largura quanto profundidade (recursividade) ele encontrou o menor caminho.
+
+    4. estratégia:
+        Foi utilizada a estratégia de busca em largura no primeiro código e de profundidade no segundo, por recursividade.
+        Na busca em largura o agente explora por níveis, indo do estado inicial e varrendo cada camada da esquerda pra direita.
+        Na busca por profundidade o agente explora da esquerda para a direita em direção para baixo e depois subindo novamente
+        quando não encontra mais estados ou alcançou o objetivo, alternando entre os níveis.
+
+    5. qual estrutura controla os estados que ainda serão explorados:
+        A fila controla os estados que ainda devem ser explorados, no mesmo sistema de struct em C.
+        No caso da implementação recursiva, a prória pilha de chamadas da função que controla os estados
+        que ainda devem ser explorados, utilizando do 'visitados' para impedir um ciclo eterno de repetição na página
+
+    6. o problema com milhares de páginas:
+        No caso da implementação por largura, o agente pode consumir muito memória para armazenar a fila, caminhos e estados visitados,
+        podendo ainda demorar muito no caso do objetivo estiver distante do estado inicial.
+        No caso da busca recursiva, pode ultrapassar o limite de recursão do python e dar 'RecursionError', podendo ainda explorar de forma
+        "desnecessária" caminhos muito longos antes de encontrar uma solução que está mais próxima do estado inicial.
+

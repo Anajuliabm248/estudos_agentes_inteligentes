@@ -13,22 +13,26 @@ Performance: como avaliar se as recomendações são boas?
     coisas, então essas métricas são pistas que devem ser aprimoradas, mas vamos seguir com elas por enquanto.
 
 Environment: onde o agente atua?
-    o agente está atuando em uma plataforma web de notícioas, que contém o próprio catálogo
+    o agente está atuando em uma plataforma web de notícias, que contém o próprio catálogo
     de notícias, mas principalmente usuários e as interações deles realizadas dentro do sistema.
 
 Sensors: quais informações o agente recebe?
     o agente recebe informações como (leitura):
     - visualização
-    - clique
+    - clique na recomendação
     - recomendação ignorada
+    - recomendações antigas
     - usuário
     - conteúdo
     - momento
     - tempo de permanência
 
 Actuators: quais ações o agente pode realizar?
-    ele pode realizar ações para recomendar as melhores notícias para o usuário
-    baseada nas métricas descritas a cima
+    ele pode realizar ações para recomendar as melhores notícias para o usuário baseado em:
+    - clique na recomendação
+    - recomedação ignorada e recomendações antigas
+    - tempo de permanência
+    - conteúdo
 
 
 3.2 Medidas de desempenho
