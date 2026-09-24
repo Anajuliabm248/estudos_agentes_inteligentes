@@ -35,26 +35,26 @@ class Agente:
         if visitados is None:
             visitados = set()
 
-            if inicio not in site or objetivo not in site:
-                return None
-
         if caminho is None:
             caminho = []
 
         # vê o estado atual
         visitados.add(inicio)
+        print('visitados: ', visitados)
         caminho_atual = caminho + [inicio]
+        print('caminho_atual: ', caminho_atual)
 
         # realiza o teste de objetivo
         if inicio == objetivo:
             return caminho_atual
 
         # explora recursivamente os estados adjacentes
-        for proxima_pagina in site[inicio]:
-            if proxima_pagina not in visitados:
+        for vizinho in site[inicio]:
+            if vizinho not in visitados:
+                print('vizinho: ', vizinho)
                 resultado = self.procurar_caminho(
                     site,
-                    proxima_pagina,
+                    vizinho,
                     objetivo,
                     visitados,
                     caminho_atual

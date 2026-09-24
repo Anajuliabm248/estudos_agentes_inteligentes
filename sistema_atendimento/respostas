@@ -1,0 +1,74 @@
+PARTE 4
+    Qual foi a ordem dos estados explorados pela BFS?
+        inicio -> triagem -> tecnico -> financeiro -> diagnostico ->
+        especialista -> aprovacao -> resolucao -> fim
+
+    Qual foi a ordem dos estados explorados pela DFS?
+        inicio -> triagem -> tecnico -> diagnostico -> especialista ->
+        resolucao -> fim
+
+    Qual é a diferença entre a forma como a BFS e a DFS organizam sua fronteira?
+        a BFS explora por nível, verificando primeiramente todos os vizinhos,
+        em um sistema de fila FIFO, ou seja, o primeiro valor a entrar é o primeiro a sair,
+        já no DFS temos um sistema de profundidade, assim ele explora um caminho até o final e então retrocede,
+        em um modo de exploração LIFO, ou seja, o último a entrar é o primeiro a sair (ser explorado).
+        Logo, o BFS tem como foco o que está mais perto da raiz, e o DFS o que é mais recente/fim/foi adicionado por último.
+
+    Por que a BFS utiliza uma fila?
+        porque ela possui uma lógica de exploração por nível, como uma fila, onde os primeiros a entrarem na fila,
+        por lógica, são os primeiros a sairem dela, assim ela se preocupa em buscar os elementos mais próximos da raiz,
+        antes de explorar por aqueles mais distantes e portanto mais recentes.
+
+    Por que a DFS utiliza uma pilha?
+        porque ele possui uma lógica de exploração por novidade, ou seja, quanto mais longe da raiz, supostamente mais novo
+        é aquele valor no grafo, seguindo uma lógica de pilha, como um amontoado de pratos: o último a ser inserido na pilha
+        será o primeiro a ser lavado.
+
+    No código, por que o estado atual é obtido utilizando:
+    atual = caminho[-1]
+        na busca pro largura e profundidade ele recebe o valor atual através do último valor encontrado no caminho, evitando assim
+        ficar preso em um looping sempre no primeiro valor do caminho, assim possibilitando a exploração do grafo e mantendo a
+        ordem do caminho que está sendo estabelecido, de tal forma: caminho['inicio', 'triagem', 'tecnico'], significa que ele já passou
+        por início, triagem e agora está explorando atualmente 'tecnico'.
+    atual = caminho[0]
+        neste caso o atual seria definido pelo primeiro valor do caminho, ficando preso em um looping
+        ex:
+            fila= [['inicio']]
+            visitados= {'inicio'}
+            caminho= ['inicio']
+            atual= inicio
+            visitados= {'triagem', 'inicio'}
+            vizinho= triagem
+            visitados= {'tecnico', 'triagem', 'inicio'}
+            vizinho= tecnico
+            visitados= {'tecnico', 'triagem', 'financeiro', 'inicio'}
+            vizinho= financeiro
+            caminho= ['inicio', 'triagem']
+            atual= inicio
+            caminho= ['inicio', 'tecnico']
+            atual= inicio
+            caminho= ['inicio', 'financeiro']
+            atual= inicio
+
+    Qual é a função do conjunto visitados?
+        impedir que a busca vire um ciclo infinito buscando sempre os mesmos valores.
+
+    O caminho encontrado pela BFS e o caminho encontrado pela DFS precisam ser iguais? Explique.
+        não, ambos possuem lógicas de busca diferentes, como já bem definido nas questões acima, de tal forma, no BFS encontramos:
+        CAMINHO ENCONTRADO: ['inicio', 'tecnico', 'especialista', 'resolucao', 'fim']
+        e no DFS:
+        CAMINHO ENCONTRADO: ['inicio', 'triagem', 'tecnico', 'diagnostico', 'especialista', 'resolucao', 'fim']
+
+PARTE 5
+    BFS: CAMINHO ENCONTRADO: ['inicio', 'financeiro', 'especialista', 'resolucao', 'fim']
+    DFS: CAMINHO ENCONTRADO: ['inicio', 'financeiro', 'aprovacao', 'especialista', 'resolucao', 'fim']
+
+    Análise: ambos encontraram caminhos diferentes já que a ordem dos caminhos pós início foram modificadas.
+
+PARTE 6
+    - Estado explorado: estado atual que está sendo manipulado (página atual de um site);
+    - Descobertas: estados vizinhos ao atual, que são identificados ao analisá-lo, mas ainda não foram explorados (fronteira).
+
+    Existe uma grande diferença entre explorar e descobrir já que o estado explorado é aquele que estamos explorando (atual)
+    e os descobertos são aqueles vizinhos ao atual, sendo adicionados ao caminho para em seguida serem explorados conforme a
+    lógica da busca, como por largura ou profundidade.
