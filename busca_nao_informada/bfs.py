@@ -1,14 +1,10 @@
 def busca_largura(grafo, inicio, objetivo):
     fila = [[inicio]]
-    print('fila=',fila)
     visitados = {inicio}
-    print('visitados=',visitados)
 
     while fila:
         caminho = fila.pop(0)
-        print('caminho=',caminho)
         atual = caminho[-1]
-        print('atual=',atual)
 
         if atual == objetivo:
             return caminho
@@ -16,9 +12,7 @@ def busca_largura(grafo, inicio, objetivo):
         for vizinho in grafo[atual]:
             if vizinho not in visitados:
                 visitados.add(vizinho)
-                print('visitados=',visitados)
                 fila.append(caminho + [vizinho])
-                print('vizinho=',vizinho)
 
     return None
 

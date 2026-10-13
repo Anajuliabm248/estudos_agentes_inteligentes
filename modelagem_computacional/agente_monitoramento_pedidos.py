@@ -14,7 +14,7 @@ class Agente:
             "ultimo_evento": None
         }
 
-    # Responsável por interpretar os eventos e atualizar o estado interna do agente
+    # Responsável por interpretar os eventos e atualizar o estado interno do agente
     def perceber(self, evento):
         self.estado["ultimo_evento"] = evento["tipo"]
 
@@ -36,7 +36,7 @@ class Agente:
                 self.estado["pedidos_ativos"].remove(pedido)
             self.estado["pedidos_cancelados"].append(pedido)
 
-    # Analisa o estado atual para determinar a melhor ação
+    # Estratégia original (prioriza cancelamentos, depois entregas, depois ativos)
     def decidir(self, estado):
         if estado["pedidos_cancelados"]:
             decisao = "informar_cancelamento"
@@ -44,6 +44,18 @@ class Agente:
             decisao = "informar_entrega"
         elif estado["pedidos_ativos"]:
             decisao = "informar_pedido_ativo"
+        else:
+            decisao = "nenhuma_acao"
+        return decisao
+
+    # Nova estratégia de decisão (prioriza pedidos ativos, depois entregas, depois cancelamentos)
+    def decidir_por_prioridade(self, estado):
+        if estado["pedidos_ativos"]:
+            decisao = "informar_pedido_ativo"
+        elif estado["pedidos_entregues"]:
+            decisao = "informar_entrega"
+        elif estado["pedidos_cancelados"]:
+            decisao = "informar_cancelamento"
         else:
             decisao = "nenhuma_acao"
         return decisao
@@ -59,14 +71,19 @@ class Agente:
         else:
             print("Nenhuma ação necessária.")
 
-    # Coordena o ciclo de vida do agente (Percepção -> Decisão -> Ação)
-    def executar(self, eventos, decidir_por_propriedade):
+    # Coordena o ciclo de vida do agente recebendo a estratégia de decisão por parâmetro
+    def executar(self, eventos, estrategia_decisao=None):
+        # Se nenhuma estratégia for passada por parâmetro, usa a padrão (decidir)
+        if estrategia_decisao is None:
+            estrategia_decisao = self.decidir
+
         for evento in eventos:
             print(f"\n--- Novo evento do Agente: {evento} ---")
             print(f"Estado anterior: {self.estado}")
 
             self.perceber(evento)
-            decisao = self.decidir(self.estado)
+            # Utiliza a função/estratégia de decisão passada dinamicamente
+            decisao = estrategia_decisao(self.estado)
             self.agir(decisao)
 
             print(f"Novo estado: {self.estado}")
@@ -78,4 +95,10 @@ class Agente:
 
 if __name__ == "__main__":
     agente = Agente()
-    agente.iniciar()
+
+    # Exemplo 1: Executando com a estratégia padrão (decidir)
+    # agente.iniciar()
+
+    # Exemplo 2: Executando explicitamente com a nova estratégia (decidir_por_prioridade)
+    print("=== EXECUTANDO COM A NOVA ESTRATÉGIA (Pedidos Ativos em Prioridade) ===")
+    agente.executar(agente.eventos, agente.decidir_por_prioridade)
