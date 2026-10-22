@@ -88,11 +88,6 @@ class Agente:
 
             print(f"Novo estado: {self.estado}")
 
-    def iniciar(self):
-        print('INICIANDO AGENTE DE MONITORAMENTO DE PEDIDOS')
-        self.executar(self.eventos)
-
-
 if __name__ == "__main__":
     agente = Agente()
 
