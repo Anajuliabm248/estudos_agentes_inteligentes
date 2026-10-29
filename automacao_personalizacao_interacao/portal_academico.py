@@ -169,10 +169,6 @@ class Agente:
             "mensagem": resultado["mensagem"],
         }
 
-        self.exibir_resposta(resposta)
-        return resposta
-
-    def exibir_resposta(self, resposta):
         print("Solicitação:", resposta["solicitacao"])
         print("Ação selecionada:", resposta["acao"])
         print("Execução confirmada:", resposta["sucesso"])
