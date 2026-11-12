@@ -1,0 +1,61 @@
+﻿residencia_id,numero_moradores,meta_consumo_diario_kwh,tarifa_base_rs_kwh,perfil_morador,peso_economia,peso_conforto,peso_flexibilidade,peso_baixo_esforco,equipamento_id,equipamento,categoria,potencia_kw,horas_uso_diario,consumo_diario_estimado_kwh,reducao_uso,essencialidade,impacto_conforto_1a5,flexibilidade_reducao_uso_1a5,esforco_1a5,economia_potencial_reducao_kwh
+R01,4,8.9,0.93,economia,0.55,0.15,0.2,0.1,E01,Geladeira,cozinha,0.18,22.17,3.991,False,essencial,5,1,1,0.0
+R01,4,8.9,0.93,economia,0.55,0.15,0.2,0.1,E02,Ar-condicionado,climatizacao,1.2,5.71,6.852,True,importante,5,2,2,0.6
+R01,4,8.9,0.93,economia,0.55,0.15,0.2,0.1,E03,Chuveiro elétrico,higiene,5.5,0.63,3.465,True,essencial,4,2,3,0.35
+R01,4,8.9,0.93,economia,0.55,0.15,0.2,0.1,E04,Máquina de lavar,lavanderia,0.6,1.17,0.702,True,importante,2,3,2,0.16
+R01,4,8.9,0.93,economia,0.55,0.15,0.2,0.1,E05,Televisão,entretenimento,0.12,4.0,0.48,True,nao_essencial,2,5,1,0.12
+R01,4,8.9,0.93,economia,0.55,0.15,0.2,0.1,E06,Iluminação LED,iluminacao,0.1,4.94,0.494,True,importante,2,4,1,0.08
+R02,3,7.61,1.0,conforto,0.2,0.5,0.1,0.2,E01,Geladeira,cozinha,0.18,21.27,3.829,False,essencial,5,1,1,0.0
+R02,3,7.61,1.0,conforto,0.2,0.5,0.1,0.2,E02,Ar-condicionado,climatizacao,1.2,5.79,6.948,True,importante,5,2,2,0.6
+R02,3,7.61,1.0,conforto,0.2,0.5,0.1,0.2,E03,Chuveiro elétrico,higiene,5.5,0.69,3.795,True,essencial,4,2,3,0.35
+R02,3,7.61,1.0,conforto,0.2,0.5,0.1,0.2,E04,Máquina de lavar,lavanderia,0.6,1.22,0.732,True,importante,2,3,2,0.16
+R02,3,7.61,1.0,conforto,0.2,0.5,0.1,0.2,E05,Televisão,entretenimento,0.12,3.94,0.473,True,nao_essencial,2,5,1,0.12
+R02,3,7.61,1.0,conforto,0.2,0.5,0.1,0.2,E06,Computador,trabalho_estudo,0.2,5.43,1.086,True,importante,3,3,2,0.1
+R03,4,12.19,0.96,equilibrio,0.35,0.3,0.2,0.15,E01,Geladeira,cozinha,0.18,25.66,4.619,False,essencial,5,1,1,0.0
+R03,4,12.19,0.96,equilibrio,0.35,0.3,0.2,0.15,E02,Ar-condicionado,climatizacao,1.2,6.31,7.572,True,importante,5,2,2,0.6
+R03,4,12.19,0.96,equilibrio,0.35,0.3,0.2,0.15,E03,Chuveiro elétrico,higiene,5.5,0.63,3.465,True,essencial,4,2,3,0.35
+R03,4,12.19,0.96,equilibrio,0.35,0.3,0.2,0.15,E04,Máquina de lavar,lavanderia,0.6,1.26,0.756,True,importante,2,3,2,0.16
+R03,4,12.19,0.96,equilibrio,0.35,0.3,0.2,0.15,E05,Televisão,entretenimento,0.12,3.86,0.463,True,nao_essencial,2,5,1,0.12
+R03,4,12.19,0.96,equilibrio,0.35,0.3,0.2,0.15,E06,Forno elétrico,cozinha,1.8,0.76,1.368,True,nao_essencial,2,3,2,0.2
+R04,1,8.15,0.87,flexibilidade,0.4,0.2,0.3,0.1,E01,Geladeira,cozinha,0.18,25.74,4.633,False,essencial,5,1,1,0.0
+R04,1,8.15,0.87,flexibilidade,0.4,0.2,0.3,0.1,E02,Ar-condicionado,climatizacao,1.2,5.67,6.804,True,importante,5,2,2,0.6
+R04,1,8.15,0.87,flexibilidade,0.4,0.2,0.3,0.1,E03,Chuveiro elétrico,higiene,5.5,0.66,3.63,True,essencial,4,2,3,0.35
+R04,1,8.15,0.87,flexibilidade,0.4,0.2,0.3,0.1,E04,Máquina de lavar,lavanderia,0.6,1.07,0.642,True,importante,2,3,2,0.16
+R04,1,8.15,0.87,flexibilidade,0.4,0.2,0.3,0.1,E05,Televisão,entretenimento,0.12,4.25,0.51,True,nao_essencial,2,5,1,0.12
+R04,1,8.15,0.87,flexibilidade,0.4,0.2,0.3,0.1,E06,Ventilador,climatizacao,0.08,6.56,0.525,True,importante,2,4,1,0.1
+R05,4,8.35,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E01,Geladeira,cozinha,0.18,21.6,3.888,False,essencial,5,1,1,0.0
+R05,4,8.35,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E02,Ar-condicionado,climatizacao,1.2,6.26,7.512,True,importante,5,2,2,0.6
+R05,4,8.35,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E03,Chuveiro elétrico,higiene,5.5,0.73,4.015,True,essencial,4,2,3,0.35
+R05,4,8.35,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E04,Máquina de lavar,lavanderia,0.6,1.11,0.666,True,importante,2,3,2,0.16
+R05,4,8.35,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E05,Televisão,entretenimento,0.12,4.05,0.486,True,nao_essencial,2,5,1,0.12
+R05,4,8.35,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E06,Iluminação LED,iluminacao,0.1,4.93,0.493,True,importante,2,4,1,0.08
+R06,3,11.34,1.01,economia,0.55,0.15,0.2,0.1,E01,Geladeira,cozinha,0.18,24.35,4.383,False,essencial,5,1,1,0.0
+R06,3,11.34,1.01,economia,0.55,0.15,0.2,0.1,E02,Ar-condicionado,climatizacao,1.2,5.78,6.936,True,importante,5,2,2,0.6
+R06,3,11.34,1.01,economia,0.55,0.15,0.2,0.1,E03,Chuveiro elétrico,higiene,5.5,0.67,3.685,True,essencial,4,2,3,0.35
+R06,3,11.34,1.01,economia,0.55,0.15,0.2,0.1,E04,Máquina de lavar,lavanderia,0.6,1.07,0.642,True,importante,2,3,2,0.16
+R06,3,11.34,1.01,economia,0.55,0.15,0.2,0.1,E05,Televisão,entretenimento,0.12,3.62,0.434,True,nao_essencial,2,5,1,0.12
+R06,3,11.34,1.01,economia,0.55,0.15,0.2,0.1,E06,Forno elétrico,cozinha,1.8,0.79,1.422,True,nao_essencial,2,3,2,0.2
+R07,1,11.71,0.9,conforto,0.2,0.5,0.1,0.2,E01,Geladeira,cozinha,0.18,22.09,3.976,False,essencial,5,1,1,0.0
+R07,1,11.71,0.9,conforto,0.2,0.5,0.1,0.2,E02,Ar-condicionado,climatizacao,1.2,6.4,7.68,True,importante,5,2,2,0.6
+R07,1,11.71,0.9,conforto,0.2,0.5,0.1,0.2,E03,Chuveiro elétrico,higiene,5.5,0.63,3.465,True,essencial,4,2,3,0.35
+R07,1,11.71,0.9,conforto,0.2,0.5,0.1,0.2,E04,Máquina de lavar,lavanderia,0.6,1.13,0.678,True,importante,2,3,2,0.16
+R07,1,11.71,0.9,conforto,0.2,0.5,0.1,0.2,E05,Televisão,entretenimento,0.12,3.64,0.437,True,nao_essencial,2,5,1,0.12
+R07,1,11.71,0.9,conforto,0.2,0.5,0.1,0.2,E06,Ventilador,climatizacao,0.08,7.78,0.622,True,importante,2,4,1,0.1
+R08,3,12.16,0.91,equilibrio,0.35,0.3,0.2,0.15,E01,Geladeira,cozinha,0.18,25.22,4.54,False,essencial,5,1,1,0.0
+R08,3,12.16,0.91,equilibrio,0.35,0.3,0.2,0.15,E02,Ar-condicionado,climatizacao,1.2,5.4,6.48,True,importante,5,2,2,0.6
+R08,3,12.16,0.91,equilibrio,0.35,0.3,0.2,0.15,E03,Chuveiro elétrico,higiene,5.5,0.62,3.41,True,essencial,4,2,3,0.35
+R08,3,12.16,0.91,equilibrio,0.35,0.3,0.2,0.15,E04,Máquina de lavar,lavanderia,0.6,1.28,0.768,True,importante,2,3,2,0.16
+R08,3,12.16,0.91,equilibrio,0.35,0.3,0.2,0.15,E05,Televisão,entretenimento,0.12,3.62,0.434,True,nao_essencial,2,5,1,0.12
+R08,3,12.16,0.91,equilibrio,0.35,0.3,0.2,0.15,E06,Computador,trabalho_estudo,0.2,5.16,1.032,True,importante,3,3,2,0.1
+R09,3,8.81,0.95,flexibilidade,0.4,0.2,0.3,0.1,E01,Geladeira,cozinha,0.18,21.64,3.895,False,essencial,5,1,1,0.0
+R09,3,8.81,0.95,flexibilidade,0.4,0.2,0.3,0.1,E02,Ar-condicionado,climatizacao,1.2,5.59,6.708,True,importante,5,2,2,0.6
+R09,3,8.81,0.95,flexibilidade,0.4,0.2,0.3,0.1,E03,Chuveiro elétrico,higiene,5.5,0.62,3.41,True,essencial,4,2,3,0.35
+R09,3,8.81,0.95,flexibilidade,0.4,0.2,0.3,0.1,E04,Máquina de lavar,lavanderia,0.6,1.09,0.654,True,importante,2,3,2,0.16
+R09,3,8.81,0.95,flexibilidade,0.4,0.2,0.3,0.1,E05,Televisão,entretenimento,0.12,4.21,0.505,True,nao_essencial,2,5,1,0.12
+R09,3,8.81,0.95,flexibilidade,0.4,0.2,0.3,0.1,E06,Forno elétrico,cozinha,1.8,0.74,1.332,True,nao_essencial,2,3,2,0.2
+R10,2,10.97,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E01,Geladeira,cozinha,0.18,25.04,4.507,False,essencial,5,1,1,0.0
+R10,2,10.97,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E02,Ar-condicionado,climatizacao,1.2,6.13,7.356,True,importante,5,2,2,0.6
+R10,2,10.97,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E03,Chuveiro elétrico,higiene,5.5,0.72,3.96,True,essencial,4,2,3,0.35
+R10,2,10.97,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E04,Máquina de lavar,lavanderia,0.6,1.23,0.738,True,importante,2,3,2,0.16
+R10,2,10.97,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E05,Televisão,entretenimento,0.12,4.14,0.497,True,nao_essencial,2,5,1,0.12
+R10,2,10.97,0.92,rotina_estavel,0.25,0.35,0.1,0.3,E06,Ventilador,climatizacao,0.08,6.42,0.514,True,importante,2,4,1,0.1
