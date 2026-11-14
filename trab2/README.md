@@ -1,11 +1,32 @@
 # Trabalho 2 - Agente Inteligente para Economia de Energia
 > Ana Júlia Bock Medina - SPI UFSM
+
 > Agentes Iteligentes para Sistemas Web - Leandro Freitas
+
+## Link do vídeo
+Infelizmente gravei o vídeo várias vezes mas sempre ficava com mais de 5 minutos, lamento T^T
+https://youtu.be/GDoivukjPGE
 
 ## Resumo
 - Este projeto implementa um agente inteligente que analisa o consumo de energia de uma residência, identifica oportunidades de economia e recomenda ações conforme as prioridades dos moradores;
 - O usuário pode aceitar ou rejeitar recomendações;
 - O agente atualiza seu estado a cada resposta, assim recomendações tratadas deixam de ficar pendentes e o consumo estimado é reduzido quando uma ação é aceita.
+
+## Ciclo do agente inteligente
+
+```mermaid
+flowchart LR
+    P((Percepção)) --> D((Decisão))
+    D --> A((Ação))
+    A --> U((Atualização))
+    U --> P
+```
+
+- **Percepção:** o agente lê os dados da residência e dos equipamentos.
+- **Decisão:** calcula a utilidade e escolhe a melhor recomendação.
+- **Ação:** apresenta a recomendação de economia de energia ao usuário.
+- **Atualização:** registra a resposta, atualiza o consumo e retorna à percepção.
+
 
 ## Instruções de execução
 

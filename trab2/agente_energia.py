@@ -43,7 +43,8 @@ class AgenteEnergia:
                 },
             },
 
-            # equipamentos em conjunto também, mas formam series (elemento + indice)
+            # equipamentos em conjunto também, mas formam series
+            # (elemento + indice)
             'equipamentos': {
                 'id': df['equipamento_id'],
                 'nome': df['equipamento'],
@@ -144,7 +145,7 @@ class AgenteEnergia:
 
             consumo_atual = self.estado['consumo_diario_estimado']
             economia = recomendacao['economia_potencial']
-            self.estado['consumo_diario_estimado'] = max(0, consumo_atual - economia)
+            self.estado['consumo_diario_estimado'] = (max(0, consumo_atual - economia))
             print('Recomendação aceita.')
 
         elif resposta == '2':
@@ -217,6 +218,7 @@ class AgenteEnergia:
                     recomendacao['id']
                 )
 
+
     def mostrar_estado(self):
         print('\n============ ESTADO ============')
         print('Residência:', self.estado['residencia']['id'])
@@ -241,10 +243,12 @@ class AgenteEnergia:
             [rec['id'] for rec in self.estado['oportunidades_pendentes']]
         )
 
+
     def estado_inicial(self, contexto, recomendacoes):
         self.estado['residencia'] = contexto['residencia']
         self.estado['consumo_diario_estimado'] = contexto['consumo_inicial']
         self.estado['oportunidades_pendentes'] = recomendacoes.copy()
+
 
     def dados_residencia(self, contexto):
         residencia = contexto['residencia']
@@ -267,7 +271,7 @@ class AgenteEnergia:
         # carregamento dos dados
         df = pd.read_csv('dataset_consumo_energia.csv')
 
-        residencia_id = 'R01'
+        residencia_id = 'R02'
         df_residencia = df[df['residencia_id'] == residencia_id]
 
         return df_residencia
