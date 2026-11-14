@@ -5,6 +5,7 @@
 
 ## Link do vídeo
 Infelizmente gravei o vídeo várias vezes mas sempre ficava com mais de 5 minutos, lamento T^T
+
 https://youtu.be/GDoivukjPGE
 
 ## Resumo
@@ -32,7 +33,9 @@ flowchart LR
 
 1. Abra a pasta trab2 em uma IDE (de preferência Pycharm)
 
-2. Execute o programa no terminal com:
+2. Instale as dependências e ative o ambiente virtual
+
+3. Execute o programa no terminal com:
 
 ```bash
 python agente_energia.py
@@ -40,18 +43,18 @@ python agente_energia.py
 
 ou então em `Run` agente_energia (shift + F10)
 
-3. O programa apresentará os dados da residência, as recomendações ordenadas e o estado inicial da simulação.
+4. O programa apresentará os dados da residência, as recomendações ordenadas e o estado inicial da simulação.
 
-4. Depois, escolha uma recomendação pendente pelo número exibido.
+5. Depois, escolha uma recomendação pendente pelo número exibido.
 
-5. Para a recomendação escolhida, informe:
+6. Para a recomendação escolhida, informe:
 
 ```text
 1 - Aceitar
 2 - Rejeitar
 ```
 
-6. Digite `0` na escolha de recomendações quando quiser encerrar a simulação.
+7. Digite `0` na escolha de recomendações quando quiser encerrar a simulação.
 
 
 ## Dependências
